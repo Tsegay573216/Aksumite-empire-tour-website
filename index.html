@@ -6,11 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aksumite empire tour</title>
 <style>
+* {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #f7f2e8;
   color: #222;
+  line-height: 1.6;
 }
 header {
   background: #176b3a;
@@ -18,13 +22,26 @@ header {
   text-align: center;
   padding: 28px 15px;
 }
-h1 { margin: 0; font-size: 30px; }
+h1 {
+  margin: 0;
+  font-size: 30px;
+}
 .hero {
   padding: 35px 20px;
   text-align: center;
   background: #e9d8ad;
 }
-.hero h2 { font-size: 27px; }
+.hero h2 {
+  font-size: 27px;
+}
+.hero img {
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  margin: 0 auto 20px;
+  border-radius: 12px;
+}
 section {
   padding: 20px;
   max-width: 800px;
@@ -44,6 +61,10 @@ section {
   padding: 13px 20px;
   border-radius: 8px;
   text-decoration: none;
+  margin: 8px 0;
+}
+.button:hover {
+  background: #10532c;
 }
 footer {
   background: #176b3a;
@@ -53,6 +74,7 @@ footer {
 }
 </style>
 </head>
+
 <body>
 
 <header>
@@ -61,11 +83,16 @@ footer {
 </header>
 
 <div class="hero">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Axum_Obelisk.jpg/800px-Axum_Obelisk.jpg" alt="The ancient standing stelae of Axum, Ethiopia" style="width:100%; max-width:700px; height:auto; border-radius:12px;">
+  <img
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Axum_Obelisk.jpg/800px-Axum_Obelisk.jpg"
+    alt="The ancient standing stelae of Axum, Ethiopia">
   <h2>Welcome to Ethiopia!</h2>
   <p>Explore the history, culture, and magnificent monuments of the ancient Aksumite Empire.</p>
   <a class="button" href="#contact">Contact Your Guide</a>
 </div>
+
+<section>
+  <h2>Discover Axum</h2>
 
   <div class="card">
     <h3>The Great Stelae</h3>
@@ -80,6 +107,21 @@ footer {
   <div class="card">
     <h3>Ancient History</h3>
     <p>Explore royal tombs, archaeological treasures, and the legacy of an extraordinary African empire.</p>
+  </div>
+
+  <div class="card">
+    <h3>King Ezana's Inscription</h3>
+    <p>Learn about the historic inscription that records the history and achievements of the Aksumite kingdom.</p>
+  </div>
+
+  <div class="card">
+    <h3>Tombs of Kings Kaleb and Gebre Meskel</h3>
+    <p>Explore the royal tombs connected with the history of ancient Aksum.</p>
+  </div>
+
+  <div class="card">
+    <h3>Yeha Temple</h3>
+    <p>Discover one of the oldest surviving monumental structures in Ethiopia, near Axum.</p>
   </div>
 </section>
 
@@ -96,7 +138,9 @@ footer {
 
 <footer>
   <p>Aksumite empire tour | Axum, Ethiopia</p>
+  <p>Discover the ancient history and culture of Ethiopia.</p>
 </footer>
 
 </body>
 </html>
+
