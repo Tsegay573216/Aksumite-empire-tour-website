@@ -1,13 +1,19 @@
+
+  
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aksumite empire tour</title>
+
+<title>Aksumite empire tour | Explore Ethiopia</title>
+
+<meta name="description" content="Discover Axum, Ethiopia with local tour guide Tsegay Measho Baraki. Explore ancient history, monuments, churches and culture.">
 
 <style>
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -15,7 +21,7 @@ body {
   font-family: Arial, sans-serif;
   background: #f7f2e8;
   color: #222;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 header {
@@ -25,9 +31,27 @@ header {
   padding: 28px 15px;
 }
 
-h1 {
+header h1 {
   margin: 0;
-  font-size: 30px;
+  font-size: 32px;
+}
+
+nav {
+  background: #10532c;
+  padding: 12px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 14px;
 }
 
 .hero {
@@ -37,30 +61,42 @@ h1 {
 }
 
 .hero h2 {
-  font-size: 27px;
+  font-size: 30px;
 }
 
 .hero img {
   display: block;
   width: 100%;
   max-width: 700px;
+  max-height: 520px;
   height: auto;
+  object-fit: contain;
   margin: 0 auto 20px;
   border-radius: 12px;
 }
 
 section {
-  padding: 20px;
-  max-width: 800px;
+  padding: 30px 20px;
+  max-width: 900px;
   margin: auto;
+}
+
+section h2 {
+  color: #176b3a;
+  text-align: center;
+  margin-bottom: 25px;
 }
 
 .card {
   background: white;
-  padding: 18px;
-  margin: 15px 0;
+  padding: 20px;
+  margin: 16px 0;
   border-radius: 12px;
   box-shadow: 0 2px 8px #ddd;
+}
+
+.card h3 {
+  color: #176b3a;
 }
 
 .button {
@@ -71,17 +107,37 @@ section {
   border-radius: 8px;
   text-decoration: none;
   margin: 8px 0;
+  font-weight: bold;
 }
 
 .button:hover {
   background: #10532c;
 }
 
+.packages {
+  border-left: 5px solid #176b3a;
+}
+
 footer {
   background: #176b3a;
   color: white;
-  padding: 20px;
+  padding: 25px 15px;
   text-align: center;
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 25px;
+  }
+
+  .hero h2 {
+    font-size: 23px;
+  }
+
+  nav a {
+    margin: 5px;
+    font-size: 12px;
+  }
 }
 </style>
 </head>
@@ -93,67 +149,205 @@ footer {
   <p>Discover the Ancient Wonders of Ethiopia</p>
 </header>
 
-<div class="hero">
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">About Me</a>
+  <a href="#discover">Discover Axum</a>
+  <a href="#tours">Tour Packages</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<div class="hero" id="home">
+
   <img
     src="https://commons.wikimedia.org/wiki/Special:FilePath/Large_obelisk_in_Axum,_Ethiopia.jpg"
-    alt="The ancient standing stelae of Axum, Ethiopia">
+    alt="Ancient standing obelisk in Axum, Ethiopia">
 
   <h2>Welcome to Ethiopia!</h2>
-  <p>Explore the history, culture, and magnificent monuments of the ancient Aksumite Empire.</p>
+
+  <p>
+    Explore the history, culture and magnificent monuments
+    of the ancient Aksumite Empire.
+  </p>
+
+  <a class="button" href="#discover">Explore Axum</a>
   <a class="button" href="#contact">Contact Your Guide</a>
+
 </div>
 
-<section>
+<section id="about">
+
+  <h2>About Your Tour Guide</h2>
+
+  <div class="card">
+
+    <h3>Tsegay Measho Baraki</h3>
+
+    <p>
+      Hello! My name is Tsegay Measho Baraki.
+      I am from the historic city of Axum, Ethiopia.
+    </p>
+
+    <p>
+      I am passionate about sharing the fascinating
+      history, culture, traditions and heritage of
+      Axum and Ethiopia with visitors from around the world.
+    </p>
+
+    <p>
+      My goal is to help visitors discover Ethiopia
+      through meaningful experiences and friendly
+      local guidance.
+    </p>
+
+    <p><strong>Location:</strong> Axum, Ethiopia</p>
+
+    <p><strong>Languages:</strong>
+      Tigrinya, Amharic and English
+    </p>
+
+  </div>
+
+</section>
+
+<section id="discover">
+
   <h2>Discover Axum</h2>
 
   <div class="card">
     <h3>The Great Stelae</h3>
-    <p>Discover the remarkable stone obelisks that tell the story of the ancient Aksumite civilization.</p>
+    <p>
+      Discover the remarkable ancient stone obelisks
+      that tell the story of the Aksumite civilization.
+    </p>
   </div>
 
   <div class="card">
     <h3>St. Mary of Zion</h3>
-    <p>Visit one of Ethiopia's most important and historic religious sites.</p>
+    <p>
+      Visit one of Ethiopia's most important and
+      historic religious sites.
+    </p>
   </div>
 
   <div class="card">
     <h3>Ancient History</h3>
-    <p>Explore royal tombs, archaeological treasures, and the legacy of an extraordinary African empire.</p>
+    <p>
+      Explore royal tombs, archaeological treasures
+      and the legacy of an extraordinary African empire.
+    </p>
   </div>
 
   <div class="card">
     <h3>King Ezana's Inscription</h3>
-    <p>Learn about the historic inscription that records the history and achievements of the Aksumite kingdom.</p>
+    <p>
+      Learn about the historic inscription that
+      records the achievements of the Aksumite kingdom.
+    </p>
   </div>
 
   <div class="card">
     <h3>Tombs of Kings Kaleb and Gebre Meskel</h3>
-    <p>Explore the royal tombs connected with the history of ancient Aksum.</p>
+    <p>
+      Explore the royal tombs connected with
+      the history of ancient Axum.
+    </p>
   </div>
 
   <div class="card">
     <h3>Yeha Temple</h3>
-    <p>Discover one of the oldest surviving monumental structures in Ethiopia, near Axum.</p>
+    <p>
+      Discover one of the oldest surviving monumental
+      structures in Ethiopia.
+    </p>
   </div>
+
+  <div class="card">
+    <h3>Dungur – Queen of Sheba's Palace</h3>
+    <p>
+      Discover the archaeological remains traditionally
+      associated with the Queen of Sheba.
+    </p>
+  </div>
+
+</section>
+
+<section id="tours">
+
+  <h2>Our Tour Packages</h2>
+
+  <div class="card packages">
+    <h3>Axum Historical City Tour</h3>
+    <p>
+      Explore the ancient stelae, St. Mary of Zion,
+      royal tombs and archaeological museum.
+    </p>
+  </div>
+
+  <div class="card packages">
+    <h3>Axum and Yeha Cultural Tour</h3>
+    <p>
+      Discover the ancient history, archaeological
+      heritage and cultural traditions of northern Ethiopia.
+    </p>
+  </div>
+
+  <div class="card packages">
+    <h3>Tigray Rock Churches Tour</h3>
+    <p>
+      Experience the remarkable rock-hewn churches
+      and spectacular landscapes around Hawzen and Tigray.
+    </p>
+  </div>
+
+  <p style="text-align:center">
+    Contact me to discuss your travel dates
+    and create a personalized itinerary.
+  </p>
+
 </section>
 
 <section id="contact">
+
   <h2>Contact Your Tour Guide</h2>
 
   <div class="card">
-    <p><strong>Name:</strong> Tsegay Measho Baraki</p>
-    <p><strong>Location:</strong> Axum, Ethiopia</p>
-    <p><strong>Languages:</strong> Tigrinya, Amharic, English</p>
-    <p>Contact me to plan your visit to the historic sites of Axum.</p>
 
-    <a class="button" href="https://wa.me/251914292666">Contact on WhatsApp</a>
+    <p><strong>Name:</strong> Tsegay Measho Baraki</p>
+
+    <p><strong>Location:</strong> Axum, Ethiopia</p>
+
+    <p><strong>Languages:</strong>
+      Tigrinya, Amharic, English
+    </p>
+
+    <p>
+      Ready to discover the ancient wonders of Ethiopia?
+      Contact me to plan your journey.
+    </p>
+
+    <a class="button"
+       href="https://wa.me/251914292666"
+       target="_blank">
+       Contact on WhatsApp
+    </a>
+
   </div>
+
 </section>
 
 <footer>
-  <p>Aksumite empire tour | Axum, Ethiopia</p>
+
+  <h3>Aksumite empire tour</h3>
+
+  <p>Axum, Ethiopia</p>
+
   <p>Discover the ancient history and culture of Ethiopia.</p>
+
+  <p>© 2026 Aksumite empire tour</p>
+
 </footer>
 
 </body>
 </html>
+
