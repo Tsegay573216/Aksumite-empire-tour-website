@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tsegay573216.github.io/Aksumite-empire-tour-website/sitemap.xml
