@@ -29,6 +29,37 @@
   <meta name="twitter:title" content="King Ezana Tours &amp; Travel in Ethiopia">
   <meta name="twitter:description" content="Discover Ethiopia with Tsegay Measho Baraki, a licensed professional tour guide based in Axum.">
 
+/* Improve text visibility on mobile phones */
+
+.card-grid {
+  grid-template-columns:
+    repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  width: 100%;
+}
+
+.place-card {
+  min-width: 0;
+  width: 100%;
+  overflow-wrap: break-word;
+}
+
+.place-card p {
+  white-space: normal;
+  overflow: visible;
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 600px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .place-card {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
   <style>
     * {
       box-sizing: border-box;
