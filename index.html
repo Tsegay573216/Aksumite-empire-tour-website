@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,37 +29,6 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="King Ezana Tours &amp; Travel in Ethiopia">
   <meta name="twitter:description" content="Discover Ethiopia with Tsegay Measho Baraki, a licensed professional tour guide based in Axum.">
-
-/* Improve text visibility on mobile phones */
-
-.card-grid {
-  grid-template-columns:
-    repeat(auto-fit, minmax(min(100%, 230px), 1fr));
-  width: 100%;
-}
-
-.place-card {
-  min-width: 0;
-  width: 100%;
-  overflow-wrap: break-word;
-}
-
-.place-card p {
-  white-space: normal;
-  overflow: visible;
-  overflow-wrap: break-word;
-}
-
-@media (max-width: 600px) {
-  .card-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .place-card {
-    width: 100%;
-    padding: 20px;
-  }
-}
 
   <style>
     * {
@@ -209,10 +179,15 @@
       margin: 18px auto;
     }
 
+    /* Responsive card layout */
+
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
       gap: 20px;
+      width: 100%;
+      align-items: stretch;
+      grid-auto-rows: auto;
     }
 
     .place-card,
@@ -226,11 +201,32 @@
       border-top: 4px solid #d6a84f;
     }
 
+    /* Make sure card text is never cut off */
+
+    .place-card {
+      min-width: 0;
+      width: 100%;
+      height: auto;
+      min-height: 0;
+      overflow: visible;
+      overflow-wrap: break-word;
+    }
+
+    .place-card h3 {
+      overflow-wrap: break-word;
+    }
+
     .place-card p,
     .service-card p,
     .offer-card p {
       color: #555;
       margin-bottom: 12px;
+      white-space: normal;
+      overflow: visible;
+      overflow-wrap: break-word;
+      line-height: 1.7;
+      height: auto;
+      max-height: none;
     }
 
     .packages {
@@ -335,6 +331,8 @@
       color: white;
     }
 
+    /* Mobile phone adjustments */
+
     @media (max-width: 600px) {
       header h1 {
         font-size: 24px;
@@ -381,10 +379,27 @@
         font-size: 21px;
       }
 
+      .card-grid {
+        grid-template-columns: minmax(0, 1fr);
+        width: 100%;
+        gap: 16px;
+      }
+
       .place-card,
       .contact-card,
       .service-card {
+        width: 100%;
+        min-width: 0;
+        height: auto;
         padding: 20px;
+      }
+
+      .place-card p {
+        white-space: normal;
+        overflow: visible;
+        overflow-wrap: break-word;
+        height: auto;
+        max-height: none;
       }
     }
   </style>
