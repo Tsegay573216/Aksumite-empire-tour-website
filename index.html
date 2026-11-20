@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,19 +55,17 @@
       text-align: center;
     }
 
-    header h1 {
-      font-size: 30px;
-      margin-bottom: 18px;
-    }
+    /* Full image: preserve the top, sides and bottom of the stone */
 
     .brand-image {
       display: block;
       width: 100%;
       max-width: 850px;
-      max-height: 390px;
       height: auto;
+      max-height: none;
       object-fit: contain;
-      margin: 0 auto 15px;
+      object-position: center center;
+      margin: 15px auto;
       border-radius: 10px;
     }
 
@@ -339,7 +336,12 @@
       }
 
       .brand-image {
-        max-height: 280px;
+        width: 100%;
+        max-height: none;
+        height: auto;
+        object-fit: contain;
+        object-position: center center;
+        margin: 15px auto;
       }
 
       .tagline {
@@ -414,7 +416,7 @@
   <img
     class="brand-image"
     src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Aksum%2C_iscrizione_di_re_ezana%2C_in_greco%2C_sabeo_e_ge%27ez%2C_330-350_dc_ca._08_ezana.jpg"
-    alt="The ancient stone inscription of King Ezana in Axum"
+    alt="The ancient stone inscription of King Ezana in Axum, showing the full upright stone monument"
     loading="eager">
 
   <p class="tagline">Explore Ethiopia with a Professional Guide</p>
@@ -987,4 +989,3 @@
 
 </body>
 </html>
-
