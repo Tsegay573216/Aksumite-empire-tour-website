@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -344,6 +345,97 @@ footer h3 {
   color: white;
 }
 
+/* PHOTO GALLERY */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.gallery-grid img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.03);
+}
+
+/* PHOTO LIGHTBOX */
+
+.photo-lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  align-items: center;
+  justify-content: center;
+  padding: 55px 55px;
+}
+
+.photo-lightbox.active {
+  display: flex;
+}
+
+.photo-lightbox img {
+  display: block;
+  max-width: 100%;
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  color: white;
+  background: rgba(255,255,255,0.15);
+  border: none;
+  cursor: pointer;
+  font-size: 30px;
+  padding: 8px 15px;
+  border-radius: 6px;
+  z-index: 2;
+}
+
+.lightbox-close {
+  top: 12px;
+  right: 18px;
+  font-size: 35px;
+}
+
+.lightbox-prev {
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox-next {
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  background: rgba(255,255,255,0.3);
+}
+
 /* MOBILE PHONE ADJUSTMENTS */
 
 @media (max-width: 600px) {
@@ -433,31 +525,28 @@ footer h3 {
     height: auto;
     max-height: none;
   }
-}
- /* PHOTO GALLERY */
 
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 15px;
-  margin-top: 25px;
-}
-
-.gallery-grid img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-}
-
-@media (max-width: 600px) {
   .gallery-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
   }
-} </style>
+
+  .photo-lightbox {
+    padding: 50px 40px;
+  }
+
+  .photo-lightbox img {
+    max-width: 100%;
+    max-height: 75vh;
+  }
+
+  .lightbox-prev,
+  .lightbox-next {
+    font-size: 24px;
+    padding: 6px 10px;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -482,7 +571,8 @@ footer h3 {
   <a href="#home">Home</a>
   <a href="#about">About Me</a>
   <a href="#discover">Discover Axum</a>
-  <a href="#tours">My Tour Packages</a><a href="#gallery">Photo Gallery</a>
+  <a href="#tours">My Tour Packages</a>
+  <a href="#gallery">Photo Gallery</a>
   <a href="#contact">Contact</a>
   <a href="https://www.tripadvisor.com/Attraction_Review-g3667784-d34835219-Reviews-King_Ezana_Tours_Travel_in_Ethiopia-Axum_Tigray_Region.html" target="_blank" rel="noopener noreferrer">Tripadvisor</a>
 </nav>
@@ -973,6 +1063,20 @@ Contact on WhatsApp
 
 </section>
 
+<!-- PHOTO LIGHTBOX -->
+
+<div class="photo-lightbox" id="photoLightbox" role="dialog" aria-modal="true" aria-label="Enlarged photo gallery">
+
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close photo viewer">&times;</button>
+
+  <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous photo">&#10094;</button>
+
+  <img id="lightboxImage" src="" alt="Enlarged gallery photo">
+
+  <button class="lightbox-next" id="lightboxNext" aria-label="Next photo">&#10095;</button>
+
+</div>
+
 <section id="contact">
 
 <h2>Contact Your Professional Tour Guide</h2>
@@ -1071,6 +1175,78 @@ Find me on Tripadvisor
 <p>&copy; 2026 King Ezana Tours &amp; Travel in Ethiopia. All rights reserved.</p>
 
 </footer>
+
+<script>
+(function () {
+  const photos = Array.from(
+    document.querySelectorAll('.gallery-grid img')
+  );
+
+  const lightbox = document.getElementById('photoLightbox');
+  const lightboxImage = document.getElementById('lightboxImage');
+  const closeButton = document.getElementById('lightboxClose');
+  const prevButton = document.getElementById('lightboxPrev');
+  const nextButton = document.getElementById('lightboxNext');
+
+  let currentIndex = 0;
+
+  function showPhoto(index) {
+    if (photos.length === 0) return;
+
+    currentIndex = (index + photos.length) % photos.length;
+
+    lightboxImage.src = photos[currentIndex].src;
+    lightboxImage.alt = photos[currentIndex].alt;
+
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    lightboxImage.src = '';
+    document.body.style.overflow = '';
+  }
+
+  photos.forEach(function (photo, index) {
+    photo.addEventListener('click', function () {
+      showPhoto(index);
+    });
+  });
+
+  closeButton.addEventListener('click', closeLightbox);
+
+  prevButton.addEventListener('click', function () {
+    showPhoto(currentIndex - 1);
+  });
+
+  nextButton.addEventListener('click', function () {
+    showPhoto(currentIndex + 1);
+  });
+
+  lightbox.addEventListener('click', function (event) {
+    if (event.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (!lightbox.classList.contains('active')) return;
+
+    if (event.key === 'Escape') {
+      closeLightbox();
+    }
+
+    if (event.key === 'ArrowLeft') {
+      showPhoto(currentIndex - 1);
+    }
+
+    if (event.key === 'ArrowRight') {
+      showPhoto(currentIndex + 1);
+    }
+  });
+})();
+</script>
 
 </body>
 </html>
